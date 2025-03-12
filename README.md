@@ -23,4 +23,3 @@ The `Matrix` class provides basic matrix operations such as addition, subtractio
 
 The `Vector` class implements a mathematical vector and provides basic operations such as addition, dot product, computing the vector length, and normalization. The vector is represented as a one-dimensional array of numbers, simplifying calculations.  
 
-Если вам нужно добавить дополнительные детали или уточнения, дайте знать! 😊
