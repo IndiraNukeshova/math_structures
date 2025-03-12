@@ -1,25 +1,34 @@
-# math_structures
-Класс `LongNumber` реализует работу с длинными целыми числами, позволяя выполнять базовые арифметические операции, такие как сложение, вычитание, умножение и деление. Он использует строковое представление чисел, что позволяет работать с очень большими значениями без потери точности.  
+Класс LongNum
 
-Класс `Polynomial` предназначен для работы с многочленами. Он поддерживает операции сложения, вычитания, умножения и деления многочленов, а также вычисление значения многочлена в заданной точке. Коэффициенты хранятся в виде списка, что обеспечивает удобную манипуляцию данными.  
+Класс LongNum представляет собой структуру для работы с длинными числами. Он содержит атрибуты deg (размер числа), mas (список цифр числа) и sign (знак числа). Конструктор позволяет инициализировать объект с заданными параметрами. Метод __str__ преобразует объект в строку, включая знак и цифры числа. Метод simplify() удаляет ведущие нули в числе, упрощая его представление.
 
-Класс `RationalNumber` представляет собой рациональное число в виде дроби. Он поддерживает основные операции с дробями, включая сокращение, сложение, вычитание, умножение и деление. Внутренне хранит числитель и знаменатель в виде целых чисел и использует алгоритм Евклида для нахождения наибольшего общего делителя (НОД).  
+Класс Polinoms
 
-Класс `Matrix` предоставляет базовые операции над матрицами, такие как сложение, вычитание, умножение и нахождение обратной матрицы. Реализована поддержка квадратных и прямоугольных матриц. Элементы матрицы хранятся в виде двумерного списка, а методы обеспечивают удобную работу с ними.  
+Класс Polinoms предназначен для работы с многочленами. Атрибут dim хранит степень многочлена, а mas — список коэффициентов. Реализован метод __add__, который выполняет сложение двух многочленов, а также метод __str__, позволяющий вывести многочлен в удобочитаемом виде, где коэффициенты представлены с соответствующими степенями переменной x.
 
-Класс `Vector` реализует математический вектор и предоставляет базовые операции, такие как сложение, скалярное произведение, вычисление длины вектора и нормализация. Вектор представлен как одномерный массив чисел, что упрощает вычисления.  
+Класс Rational
 
----
+Класс Rational реализует структуру для работы с рациональными числами. Он хранит числитель (m) и знаменатель (n). Если знаменатель равен 1, объект представляется в виде целого числа, в противном случае — в виде дроби m/n. Метод __str__ формирует строковое представление объекта.
 
-This file is a library for working with various mathematical objects, including long integers, polynomials, rational numbers, matrices, and vectors. It contains several classes, each implementing specific mathematical structures and operations.  
+Класс Vector
 
-The `LongNumber` class implements operations with long integers, allowing basic arithmetic operations such as addition, subtraction, multiplication, and division. It uses a string representation of numbers, making it possible to work with very large values without losing precision.  
+Класс Vector предназначен для представления и работы с векторами. Он содержит атрибут dim (размерность вектора) и mas (список значений координат вектора). Реализованы операции сложения векторов и скалярного произведения (__add__, __mul__). Метод __str__ позволяет вывести вектор в виде списка его координат.
 
-The `Polynomial` class is designed for working with polynomials. It supports addition, subtraction, multiplication, and division of polynomials, as well as evaluating a polynomial at a given point. Coefficients are stored as a list, ensuring convenient data manipulation.  
+Класс Matrix
 
-The `RationalNumber` class represents a rational number as a fraction. It supports basic operations with fractions, including reduction, addition, subtraction, multiplication, and division. Internally, it stores the numerator and denominator as integers and uses the Euclidean algorithm to find the greatest common divisor (GCD).  
+Класс Matrix предназначен для работы с матрицами и содержит множество методов для различных операций. Он реализует суммирование матриц, транспонирование, умножение, вычисление определителя, получение миноров, нахождение ранга матрицы, а также методы решения систем линейных уравнений (методом Гаусса и обратной матрицы). Методы sum_matrix и sum_matrix_with_check выполняют сложение двух матриц, transpos транспонирует матрицу, mul_matrix умножает две матрицы, а det_lapl и laplass вычисляют определитель с использованием разложения Лапласа.
 
-The `Matrix` class provides basic matrix operations such as addition, subtraction, multiplication, and finding the inverse of a matrix. It supports both square and rectangular matrices. Matrix elements are stored as a two-dimensional list, with methods ensuring convenient operations.  
+Методы gauss_up, gauss и gauss_down реализуют прямой и обратный ход метода Гаусса, а gauss_modified_up, gauss_modificator и gauss_modified_down улучшают его, выбирая максимальный элемент для приведения к ступенчатому виду. inverse_matrix находит обратную матрицу, а slau и sole решают систему линейных уравнений разными методами. matrix_det вычисляет определитель матрицы методом Гаусса, а matrix_rg находит ее ранг.
 
-The `Vector` class implements a mathematical vector and provides basic operations such as addition, dot product, computing the vector length, and normalization. The vector is represented as a one-dimensional array of numbers, simplifying calculations.  
+--
+
+The `LongNum` class represents large numbers with a customizable number of digits and sign. It includes methods for initialization, string representation, and simplification. The `simplify` method removes leading zeros to ensure a compact representation.
+
+The `Polinoms` class represents polynomials, allowing for operations such as addition. The polynomial's coefficients are stored in a list, and the `__str__` method formats the polynomial in a human-readable form. The `__add__` method enables polynomial addition by summing corresponding coefficients.
+
+The `Rational` class models rational numbers as fractions. It consists of a numerator (`m`) and a denominator (`n`), with an appropriate string representation to display fractions correctly.
+
+The `Vector` class represents mathematical vectors, supporting addition and dot product operations. The `__add__` method performs element-wise vector addition, while `__mul__` calculates the dot product. The string representation outputs the vector's list format.
+
+The `Matrix` class provides functionality for matrix operations, including addition, transposition, multiplication, determinant calculation, and solving systems of linear equations. Methods like `sum_matrix` and `sum_matrix_with_check` allow matrix addition, while `mul_matrix` handles matrix multiplication. The `transpos` method computes the transpose of a matrix. Determinant calculations are performed using the Laplace expansion (`det_lapl`) and Gaussian elimination (`matrix_det`). The class also includes implementations for the Gauss method to transform matrices into triangular forms (`gauss_up`, `gauss_down`) and solve systems of linear equations (`sole`). Additionally, `inverse_matrix` computes the inverse of a square matrix, and `slau` is used to solve linear equation systems.
 
